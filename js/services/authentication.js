@@ -5,7 +5,7 @@ myApp.factory('Authentication', ['$rootScope', '$location', '$firebaseObject', '
     var auth = $firebaseAuth();
     var myObject;
 
-    auth.$onAuthStateChanged(function(authUser) {``
+    auth.$onAuthStateChanged(function(authUser) {
       if(authUser) {
         var userRef = ref.child('users').child(authUser.uid);
         var userObj = $firebaseObject(userRef);
@@ -21,9 +21,9 @@ myApp.factory('Authentication', ['$rootScope', '$location', '$firebaseObject', '
           user.email,
           user.password
         ).then(function (user) {
-          $location.path('/success')
+          $location.path('/meetings')
         }).catch(function (error) {
-          $rootsScope.message = error.message;
+          $rootScope.message = error.message;
         }); //signInWithEmailAndPassword
       }, //login
 

@@ -5,7 +5,7 @@ myApp.run(['$rootScope', '$location', function($rootScope, $location) {
     if (error == 'AUTH_REQUIRED') {
       $rootScope.message = 'Sorry, you must log in to access that page';
       $location.path('/login');
-    }//Auth Required
+    } //Auth Required
   }); //$routeChangeError
 }]); //run
 
@@ -19,9 +19,9 @@ myApp.config(['$routeProvider', function ($routeProvider) {
       templateUrl: 'views/register.html',
       controller: 'RegistrationController'
     }).
-    when('/success', {
-      templateUrl: 'views/success.html',
-      controller: 'SuccessController',
+    when('/meetings', {
+      templateUrl: 'views/meetings.html',
+      controller: 'MeetingsController',
       resolve: {
         currentAuth: function(Authentication) {
           return Authentication.requireAuth();          
