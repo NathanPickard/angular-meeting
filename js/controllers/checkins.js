@@ -7,7 +7,7 @@ myApp.controller('CheckInsController',
      $scope.whichmeeting = $routeParams.mId;
      $scope.whichuser = $routeParams.uId;
 
-     ref = firebase.datebase().ref()
+     ref = firebase.database().ref()
       .child('users').child($scope.whichuser)
       .child('meetings').child($scope.whichmeeting)
       .child('checkins');
