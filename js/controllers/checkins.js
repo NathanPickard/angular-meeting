@@ -41,7 +41,7 @@ myApp.controller('CheckInsController',
 
         checkinsArray.$add({
           name: myGift,
-          date: firebase.database.ServerValue.TIMESTAMP,
+          date: firebase.database.ServerValue.TIMESTAMP
         });
       }
 

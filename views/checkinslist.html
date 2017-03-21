@@ -22,7 +22,7 @@
       <label for="dirdescending">desc</label>
     </div>
 
-    <div class="button cf">
+    <div ng-show="currentUser" class="button cf">
 
       <button class="btn btn-pick" ng-hide="recordId" ng-click="pickRandom()">Pick Random</button>
 
@@ -34,7 +34,7 @@
   <ul class="userlist cf">
     <li ng-class="checkin.userState" ng-repeat="checkin in checkins | orderBy: order:direction | filter: { $id: recordId, $: query}">
       <div class="checkin">
-        <div class="buttons">
+        <div ng-show="currentUser" class="buttons">
 
           <button class="btn btn-delete tooltip" ng-click="deleteCheckin(checkin.$id)">
             <span>Delete this check-in</span>
