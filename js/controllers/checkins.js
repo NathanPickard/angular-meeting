@@ -27,6 +27,28 @@ myApp.controller('CheckInsController',
 
       $scope.showLove = function(myCheckin) {
         myCheckin.show = !myCheckin.show;
+
+        if(myCheckin.userState == 'expanded') {
+          myCheckin.userState = '';
+        } else {
+          myCheckin.userState = 'expanded';
+        }
+      }
+
+      $scope.giveLove = function(myCheckin, myGift) {
+        var refLove = ref.child(myCheckin.$id).child('awards');
+        var checkinsArray = $firebaseArray(refLove);
+
+        checkinsArray.$add({
+          name: myGift,
+          date: firebase.database.ServerValue.TIMESTAMP,
+        });
+      }
+
+      $scope.deleteLove = function(myCheckin, key) {
+        var refLove = ref.child(myCheckin.$id).child('awards').child(key);
+        var record = $firebaseObject(refLove);
+        record.$remove(key);
       }
 
       $scope.addCheckin = function () {
